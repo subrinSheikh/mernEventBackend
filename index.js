@@ -3,7 +3,7 @@
 require("dotenv").config();
 const express = require('express');
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 const connectDB = require("./db")
 const cors = require('cors');
 const errorMiddle = require('./middlewares/errorMiddle')
@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 //     });
 //     res.send('<p>About Subrin sheikh</p>')
 // })
-connectDB().then(()=>{
+connectDB().then(() => {
     app.listen(port, () => {
         console.log(`Server is listening at port ${port}`);
     })
